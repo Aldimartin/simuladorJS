@@ -17,7 +17,7 @@ function mostrarMenu () {
     let menu;
     do {
     menu = parseInt (prompt ("¿Qué se le antoja hoy 🤤?:\n1: 12 empanadas + 2 salsas (a elección) $2000. \n2: 3 Muzzarellas grandes $2630. \n3: 8 Empanadas (a elección) + Bebida 1,5 lt (línea Coca-Cola) $1450. \n4: 1 Pizza mediana (Jamón/Napolitana/Muzzarella) + 6 Empanadas (a elección) $1630."))} 
-    while (menu != 1 && menu!=2 && menu!=3)
+    while (menu != 1 && menu!=2 && menu!=3 && menu!=4)
     switch (menu) {
         case 1:
             return "Promo 1";
@@ -40,8 +40,11 @@ function validarPrecio (menu) {
     else if (menu=== "Promo 3") {
         return 1450;
     }
-    else {
+    else if (menu === "Promo 4") {
         return 1630;
+    }
+    else {
+        console.log("No es una opción válida");
     }
 
 }
@@ -49,8 +52,8 @@ function validarPrecio (menu) {
 function cobrar (nombre,precio) {
 alert ("Usted seleccionó lo siguiente: " +nombre +"\nPrecio: $"+precio);
 let pago = parseInt (prompt ("¿Con cuánto va a pagar?"))
-if (pago> precio) {
-    alert ("Gracias por su pedido,  enseguida se lo enviaremos a su domicilio." + "\nDemora estimada: 30 minutos.")
+if (pago>= precio) {
+    alert ("Gracias por su pedido, su vuelto es " + "$" + (pago - precio) + "," + " enseguida se lo enviaremos a su domicilio." + "\nDemora estimada: 30 minutos.")
 } else {
     alert ("No te alcanza para realizar tu pedido 😫")
 }
